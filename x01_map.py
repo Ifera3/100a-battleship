@@ -5,7 +5,6 @@
 * The map is a 10x10 grid
 * (0,0) is the coordinate in the bottom left (like a regular (x,y) grid system)
 
-```
 Sample Data1:
 [[1, 1], [2, 1], [4, 0], [5, 0], [6, 0], [0, 1], [0, 2], [0, 3], [1, 8], [2, 8], [3, 8], [4, 8], [4, 3], [4, 4], [4, 5], [4, 6], [4, 7]]
 
@@ -34,7 +33,31 @@ xxxxx..xx.
 .x........
 .x........
 xx........
-```
+
 """
 
-occupied = [[1, 1], [2, 1], [4, 0], [5, 0], [6, 0], [0, 1], [0, 2], [0, 3], [1, 8], [2, 8], [3, 8], [4, 8], [4, 3], [4, 4], [4, 5], [4, 6], [4, 7]]
+
+def showBoard(occupied):
+    cawordents = []
+    board = []
+    for I in range(10):
+        for i in range(10):
+            cawordents.append([i,I])
+    print(cawordents)
+    for i in cawordents:
+        if i in occupied:
+            board.append('X')
+        else:
+            board.append('.')
+    print(board)
+    p = ""
+    for I in range(10):
+        r = 9 - I
+        for i in range(10):
+            p = p + board[r + i]
+        p = p + "\n"
+    print(p)
+
+if __name__ == "__main__":
+    occupied = [[1, 1], [2, 1], [4, 0], [5, 0], [6, 0], [0, 1], [0, 2], [0, 3], [1, 8], [2, 8], [3, 8], [4, 8], [4, 3], [4, 4], [4, 5], [4, 6], [4, 7]]
+    showBoard(occupied)
