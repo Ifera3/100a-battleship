@@ -46,16 +46,16 @@ def showBoard(occupied):
     print(cawordents)
     for i in cawordents:
         if i in occupied:
-            board.append('X')
+            board.append('X ')
         else:
-            board.append('.')
+            board.append('. ')
     print(board)
     p = ""
     for I in range(10):
-        r = 9 - I
-        for i in range(10):
-            p = p + board[r + i]
         p = p + "\n"
+        for i in range(10):
+            square = ((9 - I)*10) + i
+            p = p + board[square]
     print(p)
 
 if __name__ == "__main__":

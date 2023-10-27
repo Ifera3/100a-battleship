@@ -1,5 +1,6 @@
 #!python3
 
+import x03_create
 '''
 ##### 4. Check for conflicts
 It is not possible for a boat to occupy the same space as another boat.  
@@ -25,7 +26,7 @@ def fullList(ships):
   return None
 
   
-def isConflict(occupied,boat):
+def isConflict(occupied):
   '''
   inputs:
   occupied: list of all occupied squares
@@ -38,3 +39,6 @@ def isConflict(occupied,boat):
   
   return None
   
+if __name__ == "__main__":
+  boatDatat = x03_create.boats
+  boats = x03_create.create()
