@@ -43,13 +43,13 @@ def showBoard(occupied):
     for I in range(10):
         for i in range(10):
             cawordents.append([i,I])
-    print(cawordents)
-    for i in cawordents:
-        if i in occupied:
-            board.append('X ')
-        else:
             board.append('. ')
-    print(board)
+    for i in cawordents:
+    #    print(i)
+        for I in occupied:
+            if i in I:
+                board[cawordents.index(i)] = 'X '
+ #   print(board)
     p = ""
     for I in range(10):
         p = p + "\n"
@@ -58,6 +58,36 @@ def showBoard(occupied):
             p = p + board[square]
     print(p)
 
-if __name__ == "__main__":
-    occupied = [[1, 1], [2, 1], [4, 0], [5, 0], [6, 0], [0, 1], [0, 2], [0, 3], [1, 8], [2, 8], [3, 8], [4, 8], [4, 3], [4, 4], [4, 5], [4, 6], [4, 7]]
-    showBoard(occupied)
+def show2Boards(occupied1,occupied2):
+    cawordents = []
+    board1 = []
+    board2 = []
+    for I in range(10):
+        for i in range(10):
+            cawordents.append([i,I])
+            board1.append('. ')
+            board2.append('. ')
+    for i in cawordents:
+    #    print(i)
+        for I in occupied1:
+            if i in I:
+                board1[cawordents.index(i)] = 'X '
+        for I in occupied2:
+            if i in I:
+                board2[cawordents.index(i)] = 'X '
+ #   print(board)
+    p = ""
+    for I in range(10):
+        p = p + "\n"
+        for i in range(10):
+            square = ((9 - I)*10) + i
+            p = p + board1[square]
+        p = p + "  "
+        for i in range(10):
+            square = ((9 - I)*10) + i
+            p = p + board2[square]
+    print(p)
+
+'''if __name__ == "__main__":
+    occupied = [[[1, 1], [2, 1]], [[4, 0], [5, 0], [6, 0]], [[0, 1], [0, 2], [0, 3]], [[1, 8], [2, 8], [3, 8], [4, 8]], [[4, 3], [4, 4], [4, 5], [4, 6], [4, 7]]]
+    showBoard(occupied)'''
