@@ -33,11 +33,9 @@ xxxxx..xx.
 .x........
 .x........
 xx........
-
 """
 
-
-def showBoard(occupied):
+def showBoard(occupied=[],hit=[],miss=[]):
     cawordents = []
     board = []
     for I in range(10):
@@ -45,11 +43,13 @@ def showBoard(occupied):
             cawordents.append([i,I])
             board.append('. ')
     for i in cawordents:
-    #    print(i)
         for I in occupied:
             if i in I:
+                board[cawordents.index(i)] = 'B '
+        if i in hit:
                 board[cawordents.index(i)] = 'X '
- #   print(board)
+        if i in miss:
+                board[cawordents.index(i)] = 'O '
     p = ""
     for I in range(10):
         p = p + "\n"
@@ -58,7 +58,7 @@ def showBoard(occupied):
             p = p + board[square]
     print(p)
 
-def show2Boards(occupied1,occupied2):
+def show2Boards(occupied1,occupied2,hit1=[],miss1=[],hit2=[],miss2=[]):
     cawordents = []
     board1 = []
     board2 = []
@@ -68,14 +68,20 @@ def show2Boards(occupied1,occupied2):
             board1.append('. ')
             board2.append('. ')
     for i in cawordents:
-    #    print(i)
         for I in occupied1:
             if i in I:
+                board1[cawordents.index(i)] = 'B '
+        if i in hit1:
                 board1[cawordents.index(i)] = 'X '
+        if i in miss1:
+                board1[cawordents.index(i)] = 'O '
         for I in occupied2:
             if i in I:
+                board2[cawordents.index(i)] = 'B '
+        if i in hit2:
                 board2[cawordents.index(i)] = 'X '
- #   print(board)
+        if i in miss2:
+                board2[cawordents.index(i)] = 'O '
     p = ""
     for I in range(10):
         p = p + "\n"

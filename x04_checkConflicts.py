@@ -44,15 +44,11 @@ def fullList(ships,ocupied,notai = True):
       c = [boatsquare[-1][0] + 1,boatsquare[-1][1]]
       boatsquare.append(c)
   else:
-    ships = x03_create.create(boat)
+    ships = x03_create.create(boat,notai)
     boatsquare = fullList(ships,ocupied,notai)
   if isConflict(boatsquare,ocupied,notai):
-    if notai:
-      ships = x03_create.create(boat)
-      boatsquare = fullList(ships,ocupied,notai)
-    else:
-      ships = x03_create.aiCreate(boat)
-      boatsquare = fullList(ships,ocupied,notai)
+    ships = x03_create.create(boat,notai)
+    boatsquare = fullList(ships,ocupied,notai)
   return boatsquare
 
 def isConflict(shipSquares,ocupied,notai):
