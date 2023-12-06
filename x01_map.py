@@ -41,21 +41,28 @@ def showBoard(occupied=[],hit=[],miss=[]):
     for I in range(10):
         for i in range(10):
             cawordents.append([i,I])
-            board.append('. ')
+            board.append('.  ')
     for i in cawordents:
         for I in occupied:
             if i in I:
-                board[cawordents.index(i)] = 'B '
+                board[cawordents.index(i)] = '[] '
         if i in hit:
-                board[cawordents.index(i)] = 'X '
+                board[cawordents.index(i)] = 'X  '
         if i in miss:
-                board[cawordents.index(i)] = 'O '
-    p = ""
+                board[cawordents.index(i)] = 'O  '
+    num = "10 | "
+    p = "    _______________________________\n"
     for I in range(10):
-        p = p + "\n"
+        p = p + num
         for i in range(10):
             square = ((9 - I)*10) + i
             p = p + board[square]
+        num = f"0{9 - I} | "
+        p = p + f"|\n"
+    p = p + "   |_______________________________|\n     "
+    for i in range(10):
+        letter = ('A  ','B  ','C  ','D  ','E  ','F  ','G  ','H  ','I  ','J  ')
+        p = p + letter[i]
     print(p)
 
 def show2Boards(occupied1,occupied2,hit1=[],miss1=[],hit2=[],miss2=[]):
@@ -65,35 +72,47 @@ def show2Boards(occupied1,occupied2,hit1=[],miss1=[],hit2=[],miss2=[]):
     for I in range(10):
         for i in range(10):
             cawordents.append([i,I])
-            board1.append('. ')
-            board2.append('. ')
+            board1.append('.  ')
+            board2.append('.  ')
     for i in cawordents:
         for I in occupied1:
             if i in I:
-                board1[cawordents.index(i)] = 'B '
+                board1[cawordents.index(i)] = '[] '
         if i in hit1:
-                board1[cawordents.index(i)] = 'X '
+                board1[cawordents.index(i)] = 'X  '
         if i in miss1:
-                board1[cawordents.index(i)] = 'O '
+                board1[cawordents.index(i)] = 'O  '
         for I in occupied2:
             if i in I:
-                board2[cawordents.index(i)] = 'B '
+                board2[cawordents.index(i)] = '[] '
         if i in hit2:
-                board2[cawordents.index(i)] = 'X '
+                board2[cawordents.index(i)] = 'X  '
         if i in miss2:
-                board2[cawordents.index(i)] = 'O '
-    p = ""
+                board2[cawordents.index(i)] = 'O  '
+    num = "10 | "
+    p = "    _______________________________           _______________________________\n"
     for I in range(10):
-        p = p + "\n"
+        p = p + num
         for i in range(10):
             square = ((9 - I)*10) + i
             p = p + board1[square]
-        p = p + "  "
+        p = p + f"|      {num}"
         for i in range(10):
             square = ((9 - I)*10) + i
             p = p + board2[square]
+        num = f"0{9 - I} | "
+        p = p + '|\n'
+    p = p + "   |_______________________________|         |_______________________________|\n     "
+    for i in range(10):
+        letter = ('A  ','B  ','C  ','D  ','E  ','F  ','G  ','H  ','I  ','J  ')
+        p = p + letter[i]
+    p = p + f"            "
+    for i in range(10):
+        letter = ('A  ','B  ','C  ','D  ','E  ','F  ','G  ','H  ','I  ','J  ')
+        p = p + letter[i]
     print(p)
 
-'''if __name__ == "__main__":
+if __name__ == "__main__":
     occupied = [[[1, 1], [2, 1]], [[4, 0], [5, 0], [6, 0]], [[0, 1], [0, 2], [0, 3]], [[1, 8], [2, 8], [3, 8], [4, 8]], [[4, 3], [4, 4], [4, 5], [4, 6], [4, 7]]]
-    showBoard(occupied)'''
+    showBoard(occupied)
+    show2Boards(occupied, occupied)
