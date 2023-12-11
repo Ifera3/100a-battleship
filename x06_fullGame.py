@@ -45,10 +45,10 @@ def fire(player,notai=True):
                 if cord in i:
                     hitB2.append(cord)
                     i.remove(cord)
-                    return f'Hit {cord}'
+                    return f'Hit {x02_convert.convert(cord)}'
             else:
                 missB2.append(cord)
-                return f'Miss {cord}'
+                return f'Miss {x02_convert.convert(cord)}'
         elif player == 2:
             while True:
                 loc = input(f"Enter cauordenets: ")
@@ -66,10 +66,10 @@ def fire(player,notai=True):
                 if cord in i:
                     hitB1.append(cord)
                     i.remove(cord)
-                    return f'Hit {cord}'
+                    return f'Hit {x02_convert.convert(cord)}'
             else:
                 missB1.append(cord)
-                return f'Miss {cord}'
+                return f'Miss {x02_convert.convert(cord)}'
     else:
         if player == 1:
             while True:
@@ -80,10 +80,10 @@ def fire(player,notai=True):
                 if cord in i:
                     hitB2.append(cord)
                     i.remove(cord)
-                    return f'Hit! {x02_convert.convert(cord)}'
+                    return f'Hit {x02_convert.convert(cord)}'
             else:
                 missB2.append(cord)
-                return f'Miss! {x02_convert.convert(cord)}'
+                return f'Miss {x02_convert.convert(cord)}'
         elif player == 2:
             while True:
                 cord = x02_convert.aicord(notai)
@@ -93,10 +93,10 @@ def fire(player,notai=True):
                 if cord in i:
                     hitB1.append(cord)
                     i.remove(cord)
-                    return f'Hit! {x02_convert.convert(cord)}'
+                    return f'Hit {x02_convert.convert(cord)}'
             else:
                 missB1.append(cord)
-                return f'Miss! {x02_convert.convert(cord)}'
+                return f'Miss {x02_convert.convert(cord)}'
 
 def Cleanup():
     for i in boatB1:

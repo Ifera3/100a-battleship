@@ -51,7 +51,7 @@ def showBoard(occupied=[],hit=[],miss=[]):
         if i in miss:
                 board[cawordents.index(i)] = 'O  '
     num = "10 | "
-    p = "    _______________________________\n"
+    p = "\n    _______________________________\n"
     for I in range(10):
         p = p + num
         for i in range(10):
@@ -90,7 +90,7 @@ def show2Boards(occupied1,occupied2,hit1=[],miss1=[],hit2=[],miss2=[]):
         if i in miss2:
                 board2[cawordents.index(i)] = 'O  '
     num = "10 | "
-    p = "    _______________________________           _______________________________\n"
+    p = "\n    _______________________________           _______________________________\n"
     for I in range(10):
         p = p + num
         for i in range(10):
