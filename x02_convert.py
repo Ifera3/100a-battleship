@@ -5,7 +5,7 @@ Given a string literal convert it to a list that contains the coordinate. Your s
 import math, random
 
 letters = ('a','A','b','B','c','C','d','D','e','E','f','F','g','G','h','H','i','I','j','J')
-numbers = ('1','2','3','4','5','6','7','8','9','10')
+numbers = ('01','02','03','04','05','06','07','08','09','10')
 
 def convert(coordinate):
   """
@@ -13,6 +13,7 @@ def convert(coordinate):
     examples: "B 3" "B3" "b3"
   return value: list containing 2 integers
   """
+  print(coordinate)
   if type(coordinate) == str:
     for i in letters:
       if i in coordinate:
@@ -26,18 +27,27 @@ def convert(coordinate):
     raise NameError("Invaled input")
   elif type(coordinate) == list or type(coordinate) == tuple:
     try:
-      s = f"{letters[((coordinate[0] + 1) * 2) - 1]}{numbers[coordinate[1]]}"
+      s = f"{letters[((coordinate[0] + 1) * 2) - 1]} {numbers[coordinate[1]]}"
       return s
     except:
       raise NameError("Invaled input")
   else:
       raise NameError("Invaled input")
 
-def aicord(notai):
+def aicord(notai,lasthit,miss):
+  print(lasthit)
   if not notai:
-    x = random.randrange(10)
-    y = random.randrange(10)
-    return [x,y]
+    while True:
+      xy = [lasthit[0]+1,lasthit[1]]
+      if xy not in miss:
+        break
+      else:
+        x = random.randrange(10)
+        y = random.randrange(10)
+        xy = [x,y]
+        if xy not in miss:
+          break
+    return xy
 
 if __name__ == "__main__":
   assert convert("B3") == [1,2]
