@@ -27,7 +27,7 @@ def fullList(ships,ocupied,notai = True):
   '''
   boat = ships[2]
   boatsquare = [ships[0]]
-  print(ships[1])
+  #print(ships[1])
   if ships[1] <= 1:
     for i in range(boatDatat[boat][1] - 1):
       c = [boatsquare[-1][0],boatsquare[-1][1] + 1]

@@ -29,7 +29,7 @@ def create(boat,bord,notai=True):
     #print(boatCords)
     return boatCords  
   else:
-    xy = x02_convert.aicord(notai,[],[])
+    xy = x02_convert.aicord(notai,[['','']],[['','']])
     direc = random.randrange(5)
     boatCords = [xy,direc,boat]
     return boatCords

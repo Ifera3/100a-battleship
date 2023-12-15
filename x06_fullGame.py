@@ -73,7 +73,7 @@ def fire(player,notai=True):
     else:
         if player == 1:
             while True:
-                cord = x02_convert.aicord(notai,hitB2[-1],missB1)
+                cord = x02_convert.aicord(notai,hitB2,missB2)
                 if cord not in hitB2:
                     break
             for i in boatB2:
@@ -86,7 +86,7 @@ def fire(player,notai=True):
                 return f'Miss {x02_convert.convert(cord)}'
         elif player == 2:
             while True:
-                cord = x02_convert.aicord(notai,hitB1[-1],missB1)
+                cord = x02_convert.aicord(notai,hitB1,missB1)
                 if cord not in hitB1:
                     break
             for i in boatB1:
@@ -105,33 +105,34 @@ def Cleanup():
     for i in boatB2:
         if i == []:
             boatB2.remove(i)
-    if boatB2 == []:
+    if boatB2 == [['','']]:
         return 'Player 1'
-    elif boatB1 == []:
+    elif boatB1 == [['','']]:
         return 'Player 2'
     else:
         return None
 
 def gameLoop():
+    re = 0
     while True:
         x01_map.show2Boards([], boatB1, hitB2, missB2, hitB1, missB1)
         hit = fire(1,False)
         x01_map.showBoard(hit = hitB2, miss = missB2)
         #x01_map.showBoard(boatB2,hitB2,missB2)
-        print(hit,end='')
+        print(hit)
         time.sleep(1)
         if Cleanup() != None:
             break
         hit = fire(2,False)
         x01_map.showBoard(boatB1,hitB1,missB1)
-        print(hit,missB1,end='')
+        print(hit)
         time.sleep(1)
         if Cleanup() != None:
             break
-    print(f"\n{Cleanup()} is the Winner!")
+        re = re + 1
+    print(f"\n{Cleanup()} is the Winner!", re)
 
 if __name__ == "__main__":
-    test()
-    #
-    # setup()
+    #test()
+    setup()
     gameLoop()
