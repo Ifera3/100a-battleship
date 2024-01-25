@@ -3,7 +3,7 @@
 There are 5 boats in battleship. They must occupy coordinates that are horizontal or vertical only (no diagonals). 
 The size of the boats are 2, 3, 3, 4 and 5. Create a function that generates a list of the data for your boats.
 '''
-import random, x02_convert, x01_map, math
+import random, x02_convert, x01_map
 
 boatDatat = (('tugboat',2),('sumbarine',3),('destroyer',3),('battelship',4),('carrier',5))
 

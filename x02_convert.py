@@ -27,6 +27,7 @@ def convert(coordinate):
     raise NameError("Invaled input")
   elif type(coordinate) == list or type(coordinate) == tuple:
     try:
+      print(coordinate)
       s = f"{letters[((coordinate[0] + 1) * 2) - 1]} {numbers[coordinate[1]]}"
       return s
     except:

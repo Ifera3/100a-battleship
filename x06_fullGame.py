@@ -116,7 +116,7 @@ def gameLoop():
     re = 0
     while True:
         x01_map.show2Boards([], boatB1, hitB2, missB2, hitB1, missB1)
-        hit = fire(1,False)
+        hit = fire(1)
         x01_map.showBoard(hit = hitB2, miss = missB2)
         #x01_map.showBoard(boatB2,hitB2,missB2)
         print(hit)
@@ -130,6 +130,7 @@ def gameLoop():
         if Cleanup() != None:
             break
         re = re + 1
+    x01_map.show2Boards(boatB2, boatB1, hitB2, missB2, hitB1, missB1)
     print(f"\n{Cleanup()} is the Winner!", re)
 
 if __name__ == "__main__":

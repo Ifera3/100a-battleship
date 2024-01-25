@@ -27,6 +27,7 @@ def fullList(ships,ocupied,notai = True):
   '''
   boat = ships[2]
   boatsquare = [ships[0]]
+  print(boatsquare)
   #print(ships[1])
   if ships[1] <= 1:
     for i in range(boatDatat[boat][1] - 1):
@@ -50,6 +51,7 @@ def fullList(ships,ocupied,notai = True):
   if isConflict(boatsquare,ocupied,notai):
     ships = x03_create.create(boat,ocupied,notai)
     boatsquare = fullList(ships,ocupied,notai)
+  print(boatsquare)
   return boatsquare
 
 def isConflict(shipSquares,ocupied,notai):
