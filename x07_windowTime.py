@@ -338,7 +338,7 @@ def g():
     instructionshow = Label(window, textvariable=instructions)
     instructionshow.grid(row=13, column=1, columnspan=22)
 
-    #---------- Deju Vu land 971 lines -----------------#
+    #---------- Deju Vu land 971 lines 28% of former glory -----------------#
     l1 = Label(window, text='10')
     l2 = Label(window, text='09')
     l3 = Label(window, text='08')
@@ -423,6 +423,7 @@ def g():
     ll19.grid(row=12, column=21, padx=3)
     ll20.grid(row=12, column=22, padx=3)
 
+    #0.083% of its former glory
     def gogrt(event):
         #print(event)
         global recentcord
